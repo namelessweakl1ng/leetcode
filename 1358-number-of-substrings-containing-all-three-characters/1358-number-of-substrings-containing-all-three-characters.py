@@ -1,0 +1,15 @@
+from collections import defaultdict
+class Solution(object):
+    def numberOfSubstrings(self, s):
+        count = defaultdict(int)
+        left =0
+        ans =0
+        n = len(s)
+        for right in range(n):
+            count[s[right]]+=1
+
+            while count['a']>0 and count['b']>0 and count['c']>0:
+                ans+=n-right 
+                count[s[left]]-=1
+                left+=1
+        return ans
