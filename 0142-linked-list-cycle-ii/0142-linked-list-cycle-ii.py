@@ -6,12 +6,14 @@
 
 class Solution(object):
     def detectCycle(self, head):
-        curr = head
-        lookup = set()
-        
-        while curr:
-            if curr in lookup:
-                return curr
-            lookup.add(curr)
-            curr = curr.next
+        slow = fast  = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                slow = head 
+                while slow!=fast:
+                    slow = slow.next
+                    fast = fast.next
+                return slow
         return None
