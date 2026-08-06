@@ -7,8 +7,8 @@ class Solution(object):
 
         for r in range(len(nums)):
             curr_sum +=nums[r]
-            i = prev_idx.get(nums[r],-1)
-            prev_idx[nums[r]] =r
+            i = prev_idx.get(nums[r],-1) # copy the idx of the number that we are seeing on to the i
+            prev_idx[nums[r]] =r # this will update the recently seen number index
             while l<=i or r-l+1>k:
                 curr_sum-=nums[l]
                 l+=1
