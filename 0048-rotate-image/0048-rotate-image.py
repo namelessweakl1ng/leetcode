@@ -1,0 +1,26 @@
+class Solution(object):
+    def rotate(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
+        """
+        l, r = 0,len(matrix)-1 # -1 becz its the index
+        while l<r:
+            for i in range(r-l):
+                # these both are the same 
+                top = l
+                bottom = r
+                # save top left
+                topleft = matrix[top][l+i]
+                #
+                matrix[top][l+i] = matrix[bottom-i][l]
+                #
+                matrix[bottom-i][l] = matrix[bottom][r-i]
+                #
+                matrix[bottom][r-i] = matrix[top+i][r]
+                #
+                matrix[top+i][r] = topleft
+            r-=1
+            l+=1 # solve fot submatrix
+                
+
