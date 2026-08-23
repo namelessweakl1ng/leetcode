@@ -1,7 +1,8 @@
-class Solution(object):
+class Solution:
     def missingNumber(self, nums):
-        res = len(nums)
+        missing = len(nums)
 
-        for i in range(len(nums)): # this is mathematical there is no way you can figure this out understand it with dry run
-            res += (i-nums[i])
-        return res
+        for i in range(len(nums)):
+            missing ^= i ^ nums[i] # this will XOR everything out leaving the number 2 in example one 
+
+        return missing
