@@ -8,3 +8,4 @@ class Solution(object):
             currsum+=n
             max_sub = max(max_sub,currsum)
         return max_sub
+        
