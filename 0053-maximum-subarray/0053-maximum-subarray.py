@@ -1,11 +1,8 @@
 class Solution(object):
     def maxSubArray(self, nums):
-        max_sub = nums[0]
-        currsum = 0
-        for n in nums:
-            if currsum<0:
-                currsum = 0
-            currsum+=n
-            max_sub = max(max_sub,currsum)
-        return max_sub
-        
+        curr_sum = nums[0]
+        max_sum = nums[0]
+        for num in nums[1:]:
+            curr_sum = max(num,curr_sum+num)
+            max_sum = max(max_sum, curr_sum)
+        return max_sum # kadane algo
